@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>はんこ屋さん</title>
+</head>
+<body>
+<h1>はんこ屋さん</h1><br>
+<br>
+<form action="/hanko" method="post">
+    <table>
+        <tr>
+            <td>幅</td>
+            <td>高さ</td>
+            <td>コーナー半径</td>
+            <td>線の太さ</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="width" value="{{hanko.width}}"></td>
+            <td><input type="text" name="height" value="{{hanko.height}}"></td>
+            <td><input type="text" name="radius" value="{{hanko.radius}}"></td>
+            <td><input type="text" name="thickness" value="{{hanko.thickness}}"></td>
+        </tr>
+        <tr>
+            <td>フォント（未実装）</td>
+            <td>フォントサイズ</td>
+            <td>色</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="font" value="{{hanko.font}}"></td>
+            <td><input type="text" name="fontsize" value="{{hanko.fontsize}}"></td>
+            <td><input type="color" name="color" value="{{hanko.color}}"></td>
+        </tr>
+    </table>
+    <label for="text">テキスト（改行可）</label><br>
+    <textarea id="text" name="text">{{hanko.text}}</textarea>
+    <button type="submit">決定</button>
+    </form>
+<br>
+<br>
+<img src="{{hanko.strB64}}"/>
+<br>
+<br>
+<a href="/">何でも屋に戻る</a>
+</body>
+</html>
