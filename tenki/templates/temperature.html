@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet" href={{ url_for("static", filename="style.css") }}>
+<script src={{ url_for("static", filename="jquery-3.6.0.min.js") }}></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<title>CO2 checker</title>
+</head>
+<body>
+<br>
+<a href="https://openweathermap.org/" target="_blank">OpenWeatherデータ</a><br>
+<br>
+<table>
+<tr><td></td>{% for i in range(24) %}<th>{{ i }}時</th>{% endfor %}</tr>
+<tr><td>温度</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
+<tr><td>湿度</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
+<tr><td>風量</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
+</table>
+<br>
+<br>
+<script src={{ url_for("static", filename="ajax.js") }}></script>
+</body>
+</html>
