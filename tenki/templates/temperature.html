@@ -6,14 +6,26 @@
 <title>CO2 checker</title>
 </head>
 <body>
-<br>
-<a href="https://openweathermap.org/" target="_blank">OpenWeatherデータ</a><br>
-<br>
+<h1>職場環境見える化くん</h1><br>
 <table>
-<tr><td></td>{% for i in range(24) %}<th>{{ i }}時</th>{% endfor %}</tr>
-<tr><td>温度</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
-<tr><td>湿度</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
-<tr><td>風量</td>{% for i in range(24) %}<td></td>{% endfor %}</tr>
+<tr><th>カメラ画像（1分ごとに更新）</th><th>画像処理後</th></tr>
+<tr><td><img src="../static/image1.jpg" id="image1" class="image1" /></td><td><img src="../static/image2.jpg" id="image2" class="image2" /></td></tr>
+</table>
+<br>
+<b>富士松工場付近の天候データ</b>（provided by <a href="https://openweathermap.org/" target="_blank">OpenWeather</a>）<br>
+<table class="none">
+<tr>
+<!--<td class="none"><span onclick="changeDate(-1)">＜</span></td>-->
+<!--<td class="none"><span id="date" class="date"></span></td>-->
+<!--<td class="none"><span onclick="changeDate(1)">＞</span></td></tr>-->
+</table>
+<table>
+<tr><td></td>{% for i in range(24) %}<th>{{i}}時</th>{% endfor %}</tr>
+<tr><td>天気</td>{% for i in range(24) %}<td class="cellc"><span id="i{{i}}"></span></td>{% endfor %}</tr>
+<tr><td>降水量</td>{% for i in range(24) %}<td class="cellr"><span id="r{{i}}"></span></td>{% endfor %}</tr>
+<tr><td>温度</td>{% for i in range(24) %}<td class="cellr"><span id="t{{i}}"></span></td>{% endfor %}</tr>
+<tr><td>湿度</td>{% for i in range(24) %}<td class="cellr"><span id="h{{i}}"></span></td>{% endfor %}</tr>
+<tr><td>風量</td>{% for i in range(24) %}<td class="cellr"><span id="w{{i}}"></span></td>{% endfor %}</tr>
 </table>
 <br>
 <br>
