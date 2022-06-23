@@ -5,19 +5,7 @@ function timer(){
     if ((now.minute() != lastminute) && isDone) {
         isDone = false;
         lastminute = now.minute();
-        console.log("try start");
-        $.ajax({
-            type : "POST",
-            url  : "/getCamera"
-        }).done(function(data) {
-            console.log("done");
-            isDone = true;
-            data = JSON.parse(data);
-            putImage(data);
-        }).fail(function(jqXHR, textStatus, errorThrown){
-            console.log("fail");
-            console.log(jqXHR, textStatus, errorThrown);            
-        });
+        getPhoto();
     }
 
     // 1時間に1回実行
@@ -35,6 +23,23 @@ function timer(){
         });
     }
 };
+
+function getPhoto() {
+    console.log("try start");
+    $.ajax({
+        type : "POST",
+        url  : "/getCamera"
+    }).done(function(data) {
+        console.log("done");
+        isDone = true;
+        data = JSON.parse(data);
+        putImage(data);
+    }).fail(function(jqXHR, textStatus, errorThrown){
+        console.log("fail");
+        console.log(jqXHR, textStatus, errorThrown);            
+    });
+}
+
 
 
 function changeDate(k) {
@@ -88,6 +93,7 @@ var lastminute = dayjs().minute();
 var data = [];
 var date = dayjs();
 var strDate = date.format("YYYY/MM/DD");
+getPhoto();
 changeDate(k);
 setInterval(() => {
     timer();
