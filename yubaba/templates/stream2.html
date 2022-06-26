@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body onload="loop();">
+<table border="1">
+<tr><th>元画像</th><th>モザイク</th></tr>
+<tr><td><img id="image1" width="320" height="240"></td><td><img id="image2" width="320" height="240"></td></tr>
+</table>
+<br>
+前フレームからの経過時間：<span id="diff"></span>sec
+
+<script type="text/javascript">
+function send_to_python() {
+    $.ajax("/call_from_ajax", {
+        type: "POST",
+    }).done(function(received_data) {                   // 戻ってきたのはJSON（文字列）
+        var received_dict = JSON.parse(received_data);  // JSONを連想配列にする
+        // 以下、Javascriptで料理する
+        var img1 = received_dict["image1"];
+        var img2 = received_dict["image2"];
+        var diff = received_dict["diff"];
+        $("#image1").attr("src", img1);
+        $("#image2").attr("src", img2);
+        $("#diff").text(diff);
+    }).fail(function() {
+        console.log("失敗");
+    });
+};
+
+async function loop(){
+    const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    var isBusy = false;
+    while (true) {
+        if (! isBusy) {
+//            isBusy = true;
+            send_to_python();
+//            isBusy = false;
+            await _sleep(1);
+        }
+    };
+};
+
+</script>
+</body>
+</html>
