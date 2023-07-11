@@ -1,0 +1,10 @@
+Python3.7をインストール　パスは通さない
+**そのPythonで**python -m venv .venv を実行する
+こんな感じ
+C:\Users\森島章仁\AppData\Local\Programs\Python\Python37\python.exe -m venv .venv
+
+仮想環境に入る
+.venv\Scripts\activate
+
+venvの中のPythonでライブラリをインストールする
+opencv-pythonは./pip.exe install -U pipしないとエラーになる
