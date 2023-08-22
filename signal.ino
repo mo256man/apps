@@ -1,5 +1,3 @@
-// https://wokwi.com/projects/308108890422116928
-
 #include <RGBmatrixPanel.h>
 #define CLK 11
 #define OE   9
@@ -60,8 +58,12 @@ void drawSingal(String signal) {
     lx = 3;
     signal = "YE OW";
     matrix.drawLine(26, 17, 26, 30, matrix.Color333(7, 7, 0));
+    matrix.drawLine(27, 17, 27, 30, matrix.Color333(7, 7, 0));
+    matrix.drawLine(26, 29, 30, 29, matrix.Color333(7, 7, 0));
     matrix.drawLine(26, 30, 30, 30, matrix.Color333(7, 7, 0));
     matrix.drawLine(33, 17, 33, 30, matrix.Color333(7, 7, 0));
+    matrix.drawLine(34, 17, 34, 30, matrix.Color333(7, 7, 0));
+    matrix.drawLine(33, 29, 37, 29, matrix.Color333(7, 7, 0));
     matrix.drawLine(33, 30, 37, 30, matrix.Color333(7, 7, 0));
   } else if (signal=="RED") {
     color = matrix.Color333(7, 0, 0);
