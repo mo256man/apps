@@ -1,0 +1,34 @@
+table.data {
+    border-collapse: collapse;
+    border: 1px black solid;
+}
+
+th.data {
+    width: 200px;
+    border: 1px black solid;
+}
+
+
+td.data {
+    text-align: center;
+    width: 200px;
+    border: 1px black solid;
+}
+
+div.moon_emoji {
+    font-size: 50px;
+}
+
+span.location {
+    font-size: x-large;
+}
+
+span.btn {
+    display:inline-block;
+    user-select: none;
+    text-align: center;
+    border: 1px black solid;
+    background-color: chartreuse;
+    border-radius: 3px;
+    width: 50px
+}

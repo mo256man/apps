@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="static/style.css">
+<title>AgriBecky</title>
+</head>
+<body>
+<h1>AgriBecky</h1>
+<span class="location">【 {{ephem.name}} 】</span>（北緯 {{ephem.lat}}度、東経{{ephem.lon}}度　高度{{ephem.location.elev}}m）<br>
+<span class="location">{{ephem.date}} </span>　
+<a href="/date_minus"><span class="btn">－</span></a>　
+<a href="/date_today"><span class="btn">○</span></a>　
+<a href="/date_plus"><span class="btn">＋</span></a>
+<hr>
+<table class="data">
+<tr>
+    <th class="data">日の出日の入り</th>
+    <th class="data">月齢</th>
+    <th class="data">潮汐</th>
+</tr>
+<tr>
+<td class="data">
+    <table>
+        <tr><td>
+        今日の日の出　　{{ephem.today_rising}}<br>
+        今日の日の入り　{{ephem.today_setting}}<br>
+        明日の日の出　　{{ephem.tomorrow_rising}}<br>
+        明日の日の入り　{{ephem.tomorrow_setting}}<br>
+        </td></tr>
+    </table>
+</td>
+<td class="data">
+    {{ephem.moon_phase}}<br>
+    <div class="moon_emoji">{{ephem.moon_emoji}}</div>
+</td>
+
+</tr>
+</table>
+
+</body>
+</html>
